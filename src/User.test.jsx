@@ -1,6 +1,7 @@
 import React from 'react';
 import Enzyme from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
+import UserTest from './test_component/UserTest'
 import User from './components/User'
 import { render, unmountComponentAtNode } from "react-dom";
 
@@ -17,19 +18,20 @@ test("Render test with enzyme", () => {
   }
   function handleUserRemove () {
   }
-
+  const handleSpyChange = jest.fn();
   let props = {
     user :user,
     handleUserUpdate : handleUserUpdate,
-    handleUserRemove : handleUserRemove
+    handleUserRemove : handleUserRemove,
+    handleUpdate : handleSpyChange,
   }
-  const Spy = jest.fn(User);
-  const wrapper = Enzyme.mount(<Spy {...props}/>);
-  expect(Spy).toHaveBeenCalledTimes(1)
+  
+  const wrapper = Enzyme.mount(<UserTest {...props}/>);
+  expect(handleSpyChange).toHaveBeenCalledTimes(1)
   //update mount with same props
   wrapper.update();
   expect(wrapper.exists()).toBe(true);
-  expect(Spy).toHaveBeenCalledTimes(1)
+  expect(handleSpyChange).toHaveBeenCalledTimes(1)
 });
 
 

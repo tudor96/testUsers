@@ -28,3 +28,10 @@ export interface UserInterface {
     handleUserUpdate: (id: number) => void;
     handleUserRemove: (id: number) => void;
 }
+
+export interface UserTestInterface {
+    user: PowerUsers;
+    handleUserUpdate: (id: number) => void;
+    handleUserRemove: (id: number) => void;
+    handleUpdate: () => void;
+}

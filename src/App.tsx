@@ -70,6 +70,7 @@ const App: React.FC = () => {
       'dataUsers': [],
       'dataId':id
     })
+    UserService.removeUser(id);
   }
 
   React.useEffect(() => {
