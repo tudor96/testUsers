@@ -1,14 +1,14 @@
-
-export interface PowerUsers {
+export interface BasePowerUser {
     id: number;
     name: string;
-    count:number;
 }
 
-   
+export interface PowerUsers extends BasePowerUser {
+    count: number;
+}
 
 export interface Action {
-    type:string;
+    type: string;
     dataUsers: PowerUsers[];
     dataId: number
 }
